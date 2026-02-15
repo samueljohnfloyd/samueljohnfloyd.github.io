@@ -53,7 +53,13 @@ button:hover {
 
 <script>
 function showImage() {
+    // show the image
     document.getElementById("popup").style.display = "block";
+
+    // play fart sound
+    const fart = document.getElementById("fartSound");
+    fart.currentTime = 0; // restart sound every click
+    fart.play();
 }
 </script>
 
@@ -68,6 +74,11 @@ function showImage() {
     <div id="popup">
         <img src="https://cdn.discordapp.com/attachments/1209285863238795275/1472732448872992954/image.jpg?ex=6993a479&is=699252f9&hm=726796608b89dcb747849db74c73c73bfa48bf532e79bc1365b0543400b6e058&" alt="Popup Image">
     </div>
+
+    <audio id="fartSound" preload="auto"
+      src="https://cdn.discordapp.com/attachments/1209285863238795275/1472741330643063029/dry-fart.mp3?ex=6993acbf&is=69925b3f&hm=e1bf3e0be0b203a50c9b471234ba3ae94ee48d77aceb04657158c2837d3e6a45&">
+    </audio>
+
 </header>
 
 <footer>
