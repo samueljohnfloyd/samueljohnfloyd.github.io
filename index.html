@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Samuel John Floyd</title>
+
 <style>
 body {
     margin: 0;
@@ -22,10 +23,6 @@ h1 {
     margin-bottom: 10px;
 }
 
-p {
-    font-size: 1.2em;
-}
-
 button {
     margin-top: 20px;
     padding: 12px 25px;
@@ -42,35 +39,36 @@ button:hover {
     background: #ddd;
 }
 
-section {
-    padding: 40px 20px;
-    background: rgba(0,0,0,0.2);
+#popup {
+    display: none;
+    margin-top: 30px;
 }
 
-footer {
-    padding: 20px;
-    font-size: 0.9em;
-    opacity: 0.8;
+#popup img {
+    max-width: 90%;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
 }
 </style>
+
+<script>
+function showImage() {
+    document.getElementById("popup").style.display = "block";
+}
+</script>
+
 </head>
 <body>
 
 <header>
     <h1>Samuel John Floyd</h1>
     <p>Welcome to my personal website.</p>
-    <button onclick="alert('Thanks for visiting!')">Click Me</button>
+    <button onclick="showImage()">Click Me</button>
+
+    <div id="popup">
+        <img src="https://cdn.discordapp.com/attachments/1209285863238795275/1472732448872992954/image.jpg?ex=6993a479&is=699252f9&hm=726796608b89dcb747849db74c73c73bfa48bf532e79bc1365b0543400b6e058&" alt="Popup Image">
+    </div>
 </header>
-
-<section>
-    <h2>About Me</h2>
-    <p>This is where you can write something about yourself.</p>
-</section>
-
-<section>
-    <h2>Contact</h2>
-    <p>Email: your@email.com</p>
-</section>
 
 <footer>
     © 2026 Samuel John Floyd
