@@ -28,6 +28,7 @@ h1 {
     justify-content: center;
     gap: 15px;
     margin-top: 20px;
+    flex-wrap: wrap;
 }
 
 button {
@@ -118,10 +119,10 @@ function stopAllSounds() {
 
 function hideAllPopups() {
     document.getElementById("popup1").style.display = "none";
+    document.getElementById("popup2").style.display = "none";
 }
 
 function showBlondeGuy() {
-    // normal popup mode
     hideAllPopups();
     stopAllSounds();
 
@@ -132,24 +133,30 @@ function showBlondeGuy() {
     fart.play();
 }
 
-function showJumpscare() {
-    // hide normal stuff
+function showSamGtg() {
     hideAllPopups();
     stopAllSounds();
 
-    // show overlay
+    document.getElementById("popup2").style.display = "block";
+
+    const sexy = document.getElementById("sexySound");
+    sexy.currentTime = 0;
+    sexy.play();
+}
+
+function showJumpscare() {
+    hideAllPopups();
+    stopAllSounds();
+
     const overlay = document.getElementById("jumpscareOverlay");
     overlay.style.display = "block";
 
-    // start flash
     overlay.classList.add("flash");
 
-    // play sound
     const laugh = document.getElementById("freddyLaugh");
     laugh.currentTime = 0;
     laugh.play();
 
-    // stop flashing after 0.8 seconds (so it doesn't kill eyes forever)
     setTimeout(() => {
         overlay.classList.remove("flash");
     }, 800);
@@ -160,13 +167,11 @@ function closeJumpscare() {
     overlay.style.display = "none";
     overlay.classList.remove("flash");
 
-    // stop sound
     const laugh = document.getElementById("freddyLaugh");
     laugh.pause();
     laugh.currentTime = 0;
 }
 
-// allow ESC to close jumpscare
 document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") {
         closeJumpscare();
@@ -183,12 +188,18 @@ document.addEventListener("keydown", (e) => {
 
     <div class="button-row">
         <button onclick="showBlondeGuy()">Click Me</button>
+        <button onclick="showSamGtg()">'sam when do you gtg?' 'ok'</button>
         <button onclick="showJumpscare()">...</button>
     </div>
 
     <!-- Normal popup -->
     <div id="popup1" class="popup">
         <img src="https://cdn.discordapp.com/attachments/1209285863238795275/1472732448872992954/image.jpg?ex=6993a479&is=699252f9&hm=726796608b89dcb747849db74c73c73bfa48bf532e79bc1365b0543400b6e058&" alt="Popup Image">
+    </div>
+
+    <!-- NEW popup -->
+    <div id="popup2" class="popup">
+        <img src="https://cdn.discordapp.com/attachments/930269604574531635/1472776543867764838/IMG_5743.png?ex=6993cd8a&is=69927c0a&hm=6abb5ceb191858be1476bec308f2429ee11a3e7a958bef276d39243a94045980&" alt="Sam GTG Image">
     </div>
 
     <!-- Sounds -->
@@ -198,6 +209,11 @@ document.addEventListener("keydown", (e) => {
 
     <audio id="freddyLaugh" preload="auto"
       src="https://cdn.discordapp.com/attachments/1209285863238795275/1472742569275560100/fnaf-freddys-laugh.mp3?ex=6993ade6&is=69925c66&hm=36cc44ecede6640dd1426af951127f580e45404ee6723ce443f138f5a7108188&">
+    </audio>
+
+    <!-- NEW SOUND -->
+    <audio id="sexySound" preload="auto"
+      src="https://cdn.discordapp.com/attachments/1426424571820773458/1472778243592421537/sexy-mp3.mp3?ex=6993cf20&is=69927da0&hm=81a6d7eb8b873c065aff0fb6e194b70f8cf26be38c438cb73f7e0de969d15214&">
     </audio>
 </header>
 
